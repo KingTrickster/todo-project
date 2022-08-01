@@ -17,8 +17,13 @@ public class UserController {
         return userService.getUserById(userId);
     }
 
+    @PostMapping
+    public User createUser(@RequestBody User user){
+        return userService.create(user);
+    }
+
     @PutMapping("/{userId}")
-    public void updateUser(User user){
+    public void updateUser(@PathVariable String userId, @RequestBody User user){
         userService.updateUser(user);
     }
 

@@ -11,16 +11,16 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
+    public User create(User user){
+        return userRepo.save(user);
+    }
+
     public User getUserById(String id){
         return userRepo.findUserById(id).orElseThrow(() -> new IllegalStateException("User with id " + id + " not found"));
     }
 
-    public User updateUser(User user){
-        User u = new User();
-        u.setUsername(user.getUsername());
-        u.setName(user.getName());
-        u.setLastName(user.getLastName());
-        return userRepo.save(u);
+    public User updateUser( User user){
+        return userRepo.save(user);
     }
 
 
