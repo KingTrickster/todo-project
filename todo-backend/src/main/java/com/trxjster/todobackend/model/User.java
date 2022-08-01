@@ -4,8 +4,9 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@Document
+import java.util.List;
+
+@Data @Document
 public class User {
 
     @Id
@@ -17,5 +18,9 @@ public class User {
 
     private String username;
 
-    
+    private List<Task> tasks;
+
+    public void setTask(Task t){
+        this.tasks.add(t);
+    }
 }

@@ -27,4 +27,13 @@ public class UserController {
         userService.updateUser(user);
     }
 
+    //TODO:Remove this endpoint when app is ready
+    @GetMapping("populate")
+    public User populate(){
+        User u = new User();
+        u.setName("Alex");
+        u.setLastName("Mock");
+        u.setUsername("Mkkk");
+        return userService.create(u);
+    }
 }
